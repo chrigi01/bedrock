@@ -17,7 +17,7 @@ show_functions() {
 # Parameters
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
-SCRIPT_VERSION=1.0.0
+SCRIPT_VERSION=1.0.1
 SCRIPT_NAME=bedrock-cmd.sh
 
 USER=mc
