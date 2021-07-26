@@ -471,6 +471,7 @@ case ${SERVER_VERSION} in
     upgrade)
 	    do_stop
         do_backup
+        do_update
 	    do_upgrade
         do_start
 	    ;;
