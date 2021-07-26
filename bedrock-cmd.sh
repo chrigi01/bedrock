@@ -296,6 +296,7 @@ local FUNCTION=do_update
     mv ${SCRIPT_EXEC} ${SCRIPT_EXEC}_${SCRIPT_VERSION}
     # get current script version
     curl ${UPDATE_URL} --output ${SCRIPT_NAME}
+    chmod 750 ${SCRIPT_EXEC}
 	do_log SUCCESS "update done"	    
 }
 
