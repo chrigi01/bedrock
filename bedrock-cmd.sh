@@ -17,7 +17,7 @@ show_functions() {
 # Parameters
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
-SCRIPT_VERSION=1.0.1
+SCRIPT_VERSION=1.0.0
 SCRIPT_NAME=bedrock-cmd.sh
 
 USER=mc
@@ -49,12 +49,9 @@ LOG_FILE=${BASE_DIR}/bedrock-server.log
 
 UPGRADE_URL=https://minecraft.azureedge.net/bin-linux
 UPGRADE_SERVER_FILE=bedrock-server
-UPDATE_URL=https://raw.githubusercontent.com/chrigi01/bedrock/main/currentversion
-LATEST_VERSION=$(curl --silent ${UPDATE_URL}
+UPDATE_URL=https://www.minecraft.net/en-us/download/server/bedrock
+LATEST_VERSION=$(curl --silent ${UPDATE_URL} | grep serverBedrockLinux | sed 's/https/\nhttps/1' | sed 's/zip/zip\n/1' | grep https |sed 's/\///g'| sed 's/\https:minecraft.azureedge.netbin-linuxbedrock-server-//' | sed 's/\.zip//')
 INITIAL_VERSION=1.16.200.02
-
-#UPDATE_URL=https://www.minecraft.net/en-us/download/server/bedrock
-#LATEST_VERSION=$(curl --silent ${UPDATE_URL} | grep serverBedrockLinux | sed 's/https/\nhttps/1' | sed 's/zip/zip\n/1' | grep https |sed 's/\///g'| sed 's/\https:minecraft.azureedge.netbin-linuxbedrock-server-//' | sed 's/\.zip//')
 
 MAIN=bedrock-main
 
