@@ -47,11 +47,11 @@ BACKUP_EXT=tgz
 
 LOG_FILE=${BASE_DIR}/bedrock-server.log
 
-UPGRADE_URL=https://minecraft.azureedge.net/bin-linux
 UPGRADE_SERVER_FILE=bedrock-server
 UPGRADE_URL=https://raw.githubusercontent.com/chrigi01/bedrock/main/currentversion
 LATEST_VERSION=$(curl --silent ${UPGRADE_URL} )
 INITIAL_VERSION=1.16.200.02
+DOWNLOAD_URL=https://minecraft.azureedge.net/bin-linux
 
 UPDATE_URL=https://raw.githubusercontent.com/chrigi01/bedrock/main/bedrock-cmd.sh
 
@@ -144,7 +144,7 @@ install_server_software() {
 local FUNCTION=install_server_software
 local L_VERSION=$1
 local L_FILE=${UPGRADE_SERVER_FILE}-${L_VERSION}.zip
-local L_URL=${UPGRADE_URL}/${L_FILE}
+local L_URL=${DOWNLOAD_URL}/${L_FILE}
 local L_SERVER_TEMP_DIR=${SERVER_BASE_DIR}_temp
 
 	do_log DEBUG "L_URL=${L_URL}"
@@ -210,7 +210,7 @@ local L_PWD=$( pwd )
 get_latest_version() {
 local FUNCTION=get_latest_version
 local L_FILE=${UPGRADE_SERVER_FILE}-${LATEST_VERSION}.zip
-local L_URL=${UPGRADE_URL}/${L_FILE}
+local L_URL=${DOWNLOAD_URL}/${L_FILE}
 
     # make sure new version software can be downloaded
     if wget -q --method=HEAD ${L_URL};
