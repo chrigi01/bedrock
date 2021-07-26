@@ -287,8 +287,6 @@ local L_VERSION=
 	do_log DEBUG ${L_VERSION}
     install_server_software ${L_VERSION}
     set_server_version ${L_VERSION}
-
-    
 	do_log
 }
 
