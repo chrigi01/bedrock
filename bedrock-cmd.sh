@@ -8,7 +8,7 @@
 show_functions() {
     echo  "$0 start | stop | status | logs "
     echo "$0 backup | restore "
-    echo "$0 install | uninstall | upgrade "
+    echo "$0 install | uninstall | update | upgrade "
     echo "$0 service enable | disable "
     echo "$0 edit server.properties "
 }
@@ -49,10 +49,11 @@ LOG_FILE=${BASE_DIR}/bedrock-server.log
 
 UPGRADE_URL=https://minecraft.azureedge.net/bin-linux
 UPGRADE_SERVER_FILE=bedrock-server
-UPDATE_URL=https://raw.githubusercontent.com/chrigi01/bedrock/main/currentversion
-LATEST_VERSION=$(curl --silent ${UPDATE_URL} )
-
+UPGRADE_URL=https://raw.githubusercontent.com/chrigi01/bedrock/main/currentversion
+LATEST_VERSION=$(curl --silent ${UPGRADE_URL} )
 INITIAL_VERSION=1.16.200.02
+
+UPDATE_URL=https://raw.githubusercontent.com/chrigi01/bedrock/main/bedrock-cmd.sh
 
 MAIN=bedrock-main
 
@@ -291,6 +292,15 @@ local L_VERSION=
 	do_log
 }
 
+do_update() {
+local FUNCTION=do_update
+    # backup script
+    mv ${SCRIPT_EXEC} ${SCRIPT_EXEC}_${SCRIPT_VERSION}
+    # get current script version
+    curl ${UPDATE_URL} --output ${SCRIPT_NAME}
+	do_log SUCCESS "update done"	    
+}
+
 do_upgrade() {
 local FUNCTION=do_upgrade
 local L_BACKUP_NAME=${TIMESTAMP2}_${SERVER_VERSION}
@@ -453,6 +463,11 @@ case ${SERVER_VERSION} in
         do_disable_service 
         do_destroy_service
 	    do_uninstall
+	    ;;
+    update)
+	    do_stop
+	    do_update
+        do_start
 	    ;;
     upgrade)
 	    do_stop
