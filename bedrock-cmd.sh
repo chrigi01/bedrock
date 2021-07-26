@@ -313,7 +313,7 @@ local L_BACKUP_NAME=${TIMESTAMP2}_${SERVER_VERSION}
     else
 	    do_log INFO "new version ${LATEST_VERSION} will be installed"
         # archive previouse version
-#        do_tar_dir ${L_BACKUP_NAME} ${SERVER_BASE_DIR} ${BASE_DIR}
+        do_tar_dir ${L_BACKUP_NAME} ${SERVER_BASE_DIR} ${BASE_DIR}
         # install new version
         do_install ${LATEST_VERSION}
     fi
