@@ -17,7 +17,7 @@ show_functions() {
 # Parameters
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
-SCRIPT_VERSION=1.0.2
+SCRIPT_VERSION=1.0.2.1
 SCRIPT_NAME=bedrock-cmd.sh
 
 USER=mc
@@ -295,7 +295,7 @@ local FUNCTION=do_update
     # backup script
     mv ${SCRIPT_EXEC} ${SCRIPT_EXEC}_${SCRIPT_VERSION}
     # get current script version
-    curl ${UPDATE_URL} --output ${SCRIPT_NAME}
+    curl ${UPDATE_URL} --output ${SCRIPT_EXEC}
     chmod 750 ${SCRIPT_EXEC}
 	do_log SUCCESS "update done"	    
 }
