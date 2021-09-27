@@ -2,7 +2,7 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 #  script to setup and control a bedrock minecraft server
 #  MIT License 
-#  Copyright (c) 2020 Christian Giese  
+#  Copyright (c) 2021 Christian Giese  
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
 show_functions() {
@@ -17,7 +17,7 @@ show_functions() {
 # Parameters
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
-SCRIPT_VERSION=1.0.2.1
+SCRIPT_VERSION=1.0.2.2
 SCRIPT_NAME=bedrock-cmd.sh
 
 USER=mc
