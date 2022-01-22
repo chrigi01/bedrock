@@ -17,7 +17,7 @@ show_functions() {
 # Parameters
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
-SCRIPT_VERSION=1.0.2.3
+SCRIPT_VERSION=1.0.2.4
 SCRIPT_NAME=bedrock-cmd.sh
 
 USER=mc
@@ -48,8 +48,14 @@ BACKUP_EXT=tgz
 LOG_FILE=${BASE_DIR}/bedrock-server.log
 
 UPGRADE_SERVER_FILE=bedrock-server
-UPGRADE_URL=https://raw.githubusercontent.com/chrigi01/bedrock/main/currentversion
-LATEST_VERSION=$(curl --silent ${UPGRADE_URL} )
+UPGRADE_URL=https://www.minecraft.net/en-us/download/server/bedrock 
+# dirty workaround due to site access restrictions by mojang -> https://bugs.mojang.com/browse/WEB-4753  
+LATEST_VERSION=$(curl -silent -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)' ${UPGRADE_URL} | grep 'bin-linux' | sed 's/https/\nhttps/1' | sed 's/zip/zip\n/1' | grep https |sed 's/\///g'| sed 's/\https:minecraft.azureedge.netbin-linuxbedrock-server-//' | sed 's/\.zip//' )
+
+# alternative bedrock version identification  
+#UPGRADE_URL=https://raw.githubusercontent.com/chrigi01/bedrock/main/currentversion
+#LATEST_VERSION=$(curl --silent ${UPGRADE_URL} )
+
 INITIAL_VERSION=1.16.200.02
 DOWNLOAD_URL=https://minecraft.azureedge.net/bin-linux
 
