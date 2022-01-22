@@ -2,7 +2,7 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 #  script to setup and control a bedrock minecraft server
 #  MIT License 
-#  Copyright (c) 2021 Christian Giese  
+#  Copyright (c) 2022 Christian Giese  
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
 show_functions() {
