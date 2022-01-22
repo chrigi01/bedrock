@@ -513,7 +513,9 @@ case ${SERVER_VERSION} in
     service)
 	    case $2 in
 	    run)
-	        do_run_service
+	        do_update
+	        do_upgrade
+		do_run_service
             ;;
 	    enable)
             do_enable_service
