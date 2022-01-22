@@ -6,7 +6,7 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
 show_functions() {
-    echo  "$0 start | stop | status | logs "
+    echo "$0 start | stop | status | logs "
     echo "$0 backup | restore "
     echo "$0 install | uninstall | update | upgrade "
     echo "$0 service enable | disable "
